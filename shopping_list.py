@@ -4,6 +4,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 firebase_config = dict(st.secrets["firebase"])
+firebase_config["private_key"] = firebase_config["private_key"].replace("\\n", "\n")
 cred = credentials.Certificate(firebase_config)
 firebase_admin.initialize_app(cred)
 
@@ -102,5 +103,6 @@ for i, item in enumerate(st.session_state.shopping_list):
                     doc.reference.delete()
                 st.session_state.shopping_list = [x for x in st.session_state.shopping_list if x["url"] != item["url"]]
             st.markdown("</div>", unsafe_allow_html=True)
+
 
 
