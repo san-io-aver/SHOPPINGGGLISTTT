@@ -1,6 +1,7 @@
 import streamlit as st
 import requests, json
 import firebase_admin
+from streamlit.runtime.secrets import secrets
 from firebase_admin import credentials, firestore
 
 firebase_config = json.loads(json.dumps(secrets["firebase"]))
@@ -101,6 +102,4 @@ for i, item in enumerate(st.session_state.shopping_list):
                 for doc in docs:
                     doc.reference.delete()
                 st.session_state.shopping_list = [x for x in st.session_state.shopping_list if x["url"] != item["url"]]
-
             st.markdown("</div>", unsafe_allow_html=True)
-
