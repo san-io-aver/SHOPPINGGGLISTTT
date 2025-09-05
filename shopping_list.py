@@ -3,9 +3,9 @@ import requests
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-if not firebase_admin._apps:
-    cred = credentials.Certificate("C:\\Users\\SANIYO\\Downloads\\recovery\\shop-lifterr-firebase-adminsdk-fbsvc-c0be1561d7.json")  # Path to your downloaded JSON key
-    firebase_admin.initialize_app(cred)
+firebase_config = json.loads(json.dumps(secrets["firebase"]))
+cred = credentials.Certificate(firebase_config)
+firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 collection_ref = db.collection("shopping_list")
@@ -101,4 +101,5 @@ for i, item in enumerate(st.session_state.shopping_list):
                 for doc in docs:
                     doc.reference.delete()
                 st.session_state.shopping_list = [x for x in st.session_state.shopping_list if x["url"] != item["url"]]
+
             st.markdown("</div>", unsafe_allow_html=True)
