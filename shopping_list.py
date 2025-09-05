@@ -1,5 +1,5 @@
 import streamlit as st
-import requests
+import requests, json
 import firebase_admin
 from firebase_admin import credentials, firestore
 
@@ -103,3 +103,4 @@ for i, item in enumerate(st.session_state.shopping_list):
                 st.session_state.shopping_list = [x for x in st.session_state.shopping_list if x["url"] != item["url"]]
 
             st.markdown("</div>", unsafe_allow_html=True)
+
