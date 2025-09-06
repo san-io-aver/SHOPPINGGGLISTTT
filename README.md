@@ -2,7 +2,7 @@
 
 🔗 [**Try the App**](https://sansshoppingglisttt.streamlit.app)  
 
-A cloud-enabled shopping list app** built with **Streamlit** and **Firebase**. Add products via URLs, automatically fetch metadata, and manage your shopping list from anywhere in the world.
+A **cloud-enabled shopping list app** built with **Streamlit** and **Firebase**. Add products via URLs, automatically fetch metadata, and manage your shopping list from anywhere in the world.
 
 ---
 
